@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: lightgray;
+    border: 1px solid black;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid black;
+  }
+
+  tr.passed {
+    background-color: lightgreen;
+  }
+
+  tr.failed {
+    background-color: lightcoral;
+  }
+
+  tr.tbd {
+    background-color: lightyellow;
+  }
+</style>
+</head>
+<body>
+<label for="resultFilter">Filter by Result:</label>
+<select id="resultFilter" onchange="filterResults()">
+  <option value="all">All</option>
+  <option value="passed">Passed</option>
+  <option value="failed">Failed</option>
+  <option value="tbd">TBD</option>
+</select>
+
+<table>
+  <thead>
+  <tr>
+    <th>Timestamps</th>
+    <th>TestSteps</th>
+    <th>Action</th>
+    <th>Expect</th>
+    <th>Actual</th>
+    <th>Result</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="passed">
+    <td>2023-05-27 10:00:00</td>
+    <td>Step 1</td>
+    <td>Perform action 1</td>
+    <td>Expected result 1</td>
+    <td>Actual result 1</td>
+    <td>Passed</td>
+  </tr>
+  <tr class="failed">
+    <td>2023-05-27 10:15:00</td>
+    <td>Step 2</td>
+    <td>Perform action 2</td>
+    <td>Expected result 2</td>
+    <td>Actual result 2</td>
+    <td>Failed</td>
+  </tr>
+  <tr class="tbd">
+    <td>2023-05-27 10:30:00</td>
+    <td>Step 3</td>
+    <td>Perform action 3</td>
+    <td>Expected result 3</td>
+    <td>Actual result 3</td>
+    <td>TBD</td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+    function filterResults() {
+      var filterValue = document.getElementById("resultFilter").value;
+      var rows = document.getElementsByTagName('tr');
+
+      for (var i = 0; i < rows.length; i++) {
+        var row = rows[i];
+
+        if (filterValue === "all" || row.className === filterValue) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

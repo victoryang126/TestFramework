@@ -1,0 +1,66 @@
+<style>
+   table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #f2f2f2;
+   }
+
+   th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+   }
+
+   th {
+      background-color: #999;
+      color: #fff;
+   }
+
+   tr.pass {
+      background-color: #c9ecc9;
+   }
+
+   tr.fail {
+      background-color: #f8caca;
+   }
+
+   tr.tbd {
+      background-color: #fdfdc4;
+   }
+</style>
+
+<table>
+  <tr>
+    <th>Timestamps</th>
+    <th>TestSteps</th>
+    <th>Action</th>
+    <th>Expect</th>
+    <th>Actual</th>
+    <th>Result</th>
+  </tr>
+  <tr class="pass">
+    <td>2023-05-27 15:30:22.123</td>
+    <td>1</td>
+    <td>Click button</td>
+    <td>Button is visible</td>
+    <td>Button is visible</td>
+    <td>PASS</td>
+  </tr>
+  <tr class="fail">
+    <td>2023-05-27 15:31:10.567</td>
+    <td>2</td>
+    <td>Fill out form</td>
+    <td>Form submitted successfully</td>
+    <td>Form submission failed</td>
+    <td>FAILED</td>
+  </tr>
+  <tr class="tbd">
+    <td>2023-05-27 15:32:45.789</td>
+    <td>3</td>
+    <td>Verify data</td>
+    <td>Data comparison</td>
+    <td>TBD</td>
+    <td>TBD</td>
+  </tr>
+  <!-- 添加更多行 -->
+</table>

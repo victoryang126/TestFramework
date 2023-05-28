@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Report</title>
+  <style>
+        /* 添加自定义的 CSS 样式 */
+    </style>
+</head>
+<body>
+<h1>Test Results</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Test Case</th>
+    <th>Status</th>
+    <th>Timestamps</th>
+    <th>Action</th>
+    <th>ExpectResult</th>
+    <th>ActualResult</th>
+    <th>Result</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for report in reports %}
+  <tr>
+    <td>{{ report.nodeid }}</td>
+    <td>{{ report.outcome }}</td>
+    <td>
+      {% for step in report.extra.test_steps %}
+      {{ step['Timestamps'] }}<br>
+      {% endfor %}
+    </td>
+    <td>
+      {% for step in report.extra.test_steps %}
+      {{ step['Action'] }}<br>
+      {% endfor %}
+    </td>
+    <td>
+      {% for step in report.extra.test_steps %}
+      {{ step['ExpectResult'] }}<br>
+      {% endfor %}
+    </td>
+    <td>
+      {% for step in report.extra.test_steps %}
+      {{ step['ActualResult'] }}<br>
+      {% endfor %}
+    </td>
+    <td>
+      {% for step in report.extra.test_steps %}
+      {{ step['Result'] }}<br>
+      {% endfor %}
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>
