@@ -34,12 +34,12 @@ def test_example(input, expected):
 #     <td>Button is visible</td>
 #     <td>PASS</td>"""))
 def test_example(test_steps):
-    test_steps("Action 1", "Expect 1", "Actual 1", "Pass")
-    test_steps("Action 2", "Expect 2", "Actual 2", "Fail")
+    test_steps("Action 1", "Expect 1", "Actual 1", "Passed")
+    test_steps("Action 2", "Expect 2", "Actual 2", "Failed")
 
 def test_another_example(test_steps):
-    test_steps("Action 3", "Expect 3", "Actual 3", "Pass")
-    test_steps("Action 4", "Expect 4", "Actual 4", "Pass")
+    test_steps("Action 3", "Expect 3", "Actual 3", "Passed")
+    test_steps("Action 4", "Expect 4", "Actual 4", "Passed")
 # def test_another_example2(test_step):
 #     test_step("Action 3", "Expect 3", "Actual 3", "Pass")
 #     test_step("Action 4", "Expect 4", "Actual 4", "Pass")

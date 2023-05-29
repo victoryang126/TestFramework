@@ -439,7 +439,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>step.html</h1>
-    <p>Report generated on 28-May-2023 at 23:46:22 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 29-May-2023 at 08:20:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -475,7 +475,69 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><p><table style="border-collapse:collapse;width:100%;background-color:#f2f2f2;"><tr><th>Timestamps</th><th>TestSteps</th><th>Action</th><th>Expect</th><th>Actual</th><th>Result</th></tr><tr><td>2023-05-28 23:46:22.773</td><td>1</td><td>Action 1</td><td>Expect 1</td><td>Actual 1</td><td>Pass</td></tr><tr><td>2023-05-28 23:46:22.773</td><td>1</td><td>Action 2</td><td>Expect 2</td><td>Actual 2</td><td>Fail</td></tr></table></p></div>
+            <div>
+        <p>
+        <style>
+             table {
+              border-collapse: collapse;
+              width: 100%;
+              background-color: #f2f2f2;
+           }
+
+            th, td {
+              border: 1px solid #ddd;
+              padding: 8px;
+              text-align: left;
+           }
+
+           #test_steps th {
+              #background-color: #FFF5EE;
+              color: #000000;
+           }
+
+           tr.pass {
+              background-color: #c9ecc9;
+           }
+
+           tr.fail {
+              background-color: #f8caca;
+           }
+
+           tr.tbd {
+              background-color: #fdfdc4;
+           }
+        </style>
+        <table id="test_steps">
+          <tr>
+            <th>Timestamps</th>
+            <th>TestSteps</th>
+            <th>Action</th>
+            <th>Expect</th>
+            <th>Actual</th>
+            <th>Result</th>
+          </tr>
+    
+            <tr class="pass">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>1</td>
+                <td>Action 1</td>
+                <td>Expect 1</td>
+                <td>Actual 1</td>
+                <td>Passed</td>
+            </tr>
+        
+            <tr class="fail">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>1</td>
+                <td>Action 2</td>
+                <td>Expect 2</td>
+                <td>Actual 2</td>
+                <td>Failed</td>
+            </tr>
+        
+        </table>
+        </p>
+    </div>
             <div class="empty log">No log output captured.</div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
@@ -485,5 +547,85 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><p><table style="border-collapse:collapse;width:100%;background-color:#f2f2f2;"><tr><th>Timestamps</th><th>TestSteps</th><th>Action</th><th>Expect</th><th>Actual</th><th>Result</th></tr><tr><td>2023-05-28 23:46:22.773</td><td>1</td><td>Action 1</td><td>Expect 1</td><td>Actual 1</td><td>Pass</td></tr><tr><td>2023-05-28 23:46:22.773</td><td>1</td><td>Action 2</td><td>Expect 2</td><td>Actual 2</td><td>Fail</td></tr><tr><td>2023-05-28 23:46:22.773</td><td>3</td><td>Action 3</td><td>Expect 3</td><td>Actual 3</td><td>Pass</td></tr><tr><td>2023-05-28 23:46:22.773</td><td>3</td><td>Action 4</td><td>Expect 4</td><td>Actual 4</td><td>Pass</td></tr></table></p></div>
+            <div>
+        <p>
+        <style>
+             table {
+              border-collapse: collapse;
+              width: 100%;
+              background-color: #f2f2f2;
+           }
+
+            th, td {
+              border: 1px solid #ddd;
+              padding: 8px;
+              text-align: left;
+           }
+
+           #test_steps th {
+              #background-color: #FFF5EE;
+              color: #000000;
+           }
+
+           tr.pass {
+              background-color: #c9ecc9;
+           }
+
+           tr.fail {
+              background-color: #f8caca;
+           }
+
+           tr.tbd {
+              background-color: #fdfdc4;
+           }
+        </style>
+        <table id="test_steps">
+          <tr>
+            <th>Timestamps</th>
+            <th>TestSteps</th>
+            <th>Action</th>
+            <th>Expect</th>
+            <th>Actual</th>
+            <th>Result</th>
+          </tr>
+    
+            <tr class="pass">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>1</td>
+                <td>Action 1</td>
+                <td>Expect 1</td>
+                <td>Actual 1</td>
+                <td>Passed</td>
+            </tr>
+        
+            <tr class="fail">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>1</td>
+                <td>Action 2</td>
+                <td>Expect 2</td>
+                <td>Actual 2</td>
+                <td>Failed</td>
+            </tr>
+        
+            <tr class="pass">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>3</td>
+                <td>Action 3</td>
+                <td>Expect 3</td>
+                <td>Actual 3</td>
+                <td>Passed</td>
+            </tr>
+        
+            <tr class="pass">
+                <td>2023-05-29 08:20:17.566</td>
+                <td>3</td>
+                <td>Action 4</td>
+                <td>Expect 4</td>
+                <td>Actual 4</td>
+                <td>Passed</td>
+            </tr>
+        
+        </table>
+        </p>
+    </div>
             <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
