@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>test_report.html</title>
+    <title>自定义测试报告</title>
     <style>body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -438,148 +438,47 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
-    <h1>test_report.html</h1>
-    <p>Report generated on 29-May-2023 at 09:01:21 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <h1>自定义测试报告</h1>
+    <p>Report generated on 29-May-2023 at 08:35:15 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
-        <td>Machine</td>
-        <td>MonsterdeMacBook-Pro.local</td></tr>
+        <td>Packages</td>
+        <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
       <tr>
-        <td>User</td>
-        <td>monster</td></tr></table>
+        <td>Platform</td>
+        <td>macOS-10.16-x86_64-i386-64bit</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"allure-pytest": "2.13.2", "html": "3.2.0", "html-reporter": "0.2.9", "metadata": "2.0.4", "ordering": "0.6"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.9.6</td></tr></table>
     <h2>Summary</h2>
-    <p>2 tests ran in 0.05 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 0.03 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
-        <tr>
-          <th class="sortable time" col="time">Time</th>
-          <th class="sortable server-name" col="server-name">Server Name</th>
+        <tr>TimestampsTestStepsActionExpectResultActualResultResult
           <th class="sortable result initial-sort" col="result">Result</th>
           <th class="sortable" col="name">Test</th>
-          <th class="sortable" col="duration">Duration</th></tr>
+          <th class="sortable" col="duration">Duration</th>
+          <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
-          <th colspan="5">No results found. Try to check the filters</th></tr></thead>
+          <th colspan="10">No results found. Try to check the filters</th></tr></thead>
       <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-time">2023-05-29 01:01:21.723980</td>
-          <td class="col-server-name">-</td>
+        <tr>------
           <td class="col-result">Passed</td>
-          <td class="col-name">test_report.py::test_example</td>
-          <td class="col-duration">0.00</td></tr>
+          <td class="col-name">step4.py::test_example</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
         <tr>
-          <td class="extra" colspan="5">
-            <div>
-    <p>
-    <style>
-         table {
-          border-collapse: collapse;
-          width: 100%;
-          background-color: #f2f2f2;
-       }
-
-        th, td {
-          border: 1px solid #ddd;
-          padding: 8px;
-          text-align: left;
-       }
-
-       #test_steps th {
-          #background-color: #FFF5EE;
-          color: #000000;
-       }
-
-       tr.pass {
-          background-color: #c9ecc9;
-       }
-
-       tr.fail {
-          background-color: #f8caca;
-       }
-
-       tr.tbd {
-          background-color: #fdfdc4;
-       }
-    </style>
-    <table id="test_steps">
-      <tr>
-        <th>Timestamps</th>
-        <th>TestSteps</th>
-        <th>Action</th>
-        <th>Expect</th>
-        <th>Actual</th>
-        <th>Result</th>
-      </tr>
-    </table>
-    </p>
-    </div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>This is a test
-<br/> ----------------------------Captured stdout teardown---------------------------- <br/>+-------------------------+------+----------+--------------+--------------+--------+
-|        Timestamps       | Step |  Action  | ExpectResult | ActualResult | Result |
-+-------------------------+------+----------+--------------+--------------+--------+
-| 2023-05-29 09:01:21.715 |  1   | Action 1 |   Expect 1   |   Actual 1   |  Pass  |
-| 2023-05-29 09:01:21.715 |  2   | Action 2 |   Expect 2   |   Actual 2   |  Fail  |
-+-------------------------+------+----------+--------------+--------------+--------+
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-time">2023-05-29 01:01:21.725130</td>
-          <td class="col-server-name">-</td>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_report.py::test_another_example</td>
-          <td class="col-duration">0.00</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div>
-    <p>
-    <style>
-         table {
-          border-collapse: collapse;
-          width: 100%;
-          background-color: #f2f2f2;
-       }
-
-        th, td {
-          border: 1px solid #ddd;
-          padding: 8px;
-          text-align: left;
-       }
-
-       #test_steps th {
-          #background-color: #FFF5EE;
-          color: #000000;
-       }
-
-       tr.pass {
-          background-color: #c9ecc9;
-       }
-
-       tr.fail {
-          background-color: #f8caca;
-       }
-
-       tr.tbd {
-          background-color: #fdfdc4;
-       }
-    </style>
-    <table id="test_steps">
-      <tr>
-        <th>Timestamps</th>
-        <th>TestSteps</th>
-        <th>Action</th>
-        <th>Expect</th>
-        <th>Actual</th>
-        <th>Result</th>
-      </tr>
-    </table>
-    </p>
-    </div>
-            <div class="log"> ----------------------------Captured stdout teardown---------------------------- <br/>+-------------------------+------+----------+--------------+--------------+--------+
-|        Timestamps       | Step |  Action  | ExpectResult | ActualResult | Result |
-+-------------------------+------+----------+--------------+--------------+--------+
-| 2023-05-29 09:01:21.715 |  1   | Action 3 |   Expect 3   |   Actual 3   |  Pass  |
-| 2023-05-29 09:01:21.715 |  2   | Action 4 |   Expect 4   |   Actual 4   |  Pass  |
-+-------------------------+------+----------+--------------+--------------+--------+
+          <td class="extra" colspan="10">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>Test Step: 1
+Action: 执行动作
+Expect Result: 期望结果
+Actual Result: 实际结果
+Result: 通过
+Timestamp: 2023-05-29 08:35:15.749
 <br/></div></td></tr></tbody></table></body></html>

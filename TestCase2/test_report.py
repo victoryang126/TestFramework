@@ -1,66 +1,143 @@
-
 import pytest
-from datetime import datetime
-from py.xml import html
-
-# 初始化测试报告
-report_rows = []
-
-# 添加一行数据到测试报告
-def add_row_to_report(test_step, action, expect_result, actual_result, result):
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
-    row = (now, test_step, action, expect_result, actual_result, result)
-    report_rows.append(row)
+import datetime
 
 
-# 生成测试报告
-@pytest.mark.hookwrapper
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    rep = outcome.get_result()
-    if rep.when == "call":
-        if rep.failed:
-            result = "失败"
+def generate_html_table(data):
+    html = '''
+        <p>
+        <style>
+             table {
+              border-collapse: collapse;
+              width: 100%;
+              background-color: #f2f2f2;
+           }
+
+            th, td {
+              border: 1px solid #ddd;
+              padding: 8px;
+              text-align: left;
+           }
+
+           #test_steps th {
+              #background-color: #FFF5EE;
+              color: #000000;
+           }
+
+           tr.pass {
+              background-color: #c9ecc9;
+           }
+
+           tr.fail {
+              background-color: #f8caca;
+           }
+
+           tr.tbd {
+              background-color: #fdfdc4;
+           }
+        </style>
+        <table id="test_steps">
+          <tr>
+            <th>Timestamps</th>
+            <th>TestSteps</th>
+            <th>Action</th>
+            <th>Expect</th>
+            <th>Actual</th>
+            <th>Result</th>
+          </tr>
+    '''
+
+    for item in data:
+        html += f'''
+            <tr class="{item['result'].lower()}">
+                <td>{item['timestamps']}</td>
+                <td>{item['teststeps']}</td>
+                <td>{item['action']}</td>
+                <td>{item['expect']}</td>
+                <td>{item['actual']}</td>
+                <td>{item['result']}</td>
+            </tr>
+        '''
+
+    html += '''
+        </table>
+        </p>
+    '''
+
+    return html
+
+
+@pytest.fixture(scope='session')
+def timestamp():
+    def get_timestamp():
+        return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+    return get_timestamp
+
+
+@pytest.fixture(scope='function')
+def teststep(request):
+    def get_teststep():
+        if 'teststep' not in request.session:
+            request.session['teststep'] = 1
         else:
-            result = "通过"
-        add_row_to_report(None, None, None, None, result)
+            request.session['teststep'] += 1
+        return request.session['teststep']
+    return get_teststep
 
-# 生成HTML测试报告
-@pytest.mark.hookwrapper
-def pytest_html_results_table_header(cells):
-    cells.insert(0, html.th("Timestamps"))
-    cells.append(html.th("Timestamps"))
 
-@pytest.mark.hookwrapper
-def pytest_html_results_table_row(report, cells):
-    cells.insert(0, html.td(report.when))
-    cells.append(html.td(report.when))
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    pytest_html = item.config.pluginmanager.getplugin('html')
+    outcome = yield
+    report = outcome.get_result()
+    extra = getattr(report, 'extra', [])
+    if report.when == 'call':
+        timestamp_value = item.funcargs['timestamp']()
+        teststep_value = item.funcargs['teststep']()
+        action = getattr(item.function, 'action', 'N/A')
+        expect = getattr(item.function, 'expect', 'N/A')
+        actual = getattr(item.function, 'actual', 'N/A')
+        result = report.outcome.capitalize()
+        data = {
+            'timestamps': timestamp_value,
+            'teststeps': teststep_value,
+            'action': action,
+            'expect': expect,
+            'actual': actual,
+            'result': result
+        }
+        extra.append(pytest_html.extras.html(generate_html_table([data])))
+        report.extra = extra
 
-@pytest.mark.hookwrapper
-def pytest_html_results_table_footer(cells):
-    pass
 
-# 生成测试报告文件
-@pytest.mark.hookwrapper
-def pytest_terminal_summary(terminalreporter, exitstatus, config):
-    if report_rows:
-        headers = ["Timestamps", "TestSteps", "Action", "ExpectResult", "ActualResult", "Result"]
-        rows = [headers] + report_rows
-        html_table = html.table(
-            [html.tr([html.th(cell) for cell in row]) for row in rows[1:]],
-            [html.tr([html.td(cell) for cell in row]) for row in rows[1:]]
-        )
-        with open("test_report.html", "w") as f:
-            f.write(html.html(
-                html.head(html.title("Test Report")),
-                html.body(html_table)
-            ))
+@pytest.mark.html
+def test_case_example(timestamp, teststep):
+    action = "Perform some action"
+    expect = "Expected value"
+    actual = "Actual value"
+    result = "Passed" if expect == actual else "Failed"
 
-# 定义测试用例
-def test_example():
-    add_row_to_report(1, "执行操作A", "期望结果A", "实际结果A", "通过")
-    add_row_to_report(2, "执行操作B", "期望结果B", "实际结果B", "失败")
-    assert False
+    setattr(test_case_example, 'action', action)
+    setattr(test_case_example, 'expect', expect)
+    setattr(test_case_example, 'actual', actual)
+
+    assert expect == actual, "Assertion failed"
+
+
+@pytest.mark.html
+def test_case_another_example(timestamp, teststep):
+    action = "Perform another action"
+    expect = "Another expected value"
+    actual = "Another actual value"
+    result = "Passed" if expect == actual else "Failed"
+
+    setattr(test_case_another_example, 'action', action)
+    setattr(test_case_another_example, 'expect', expect)
+    setattr(test_case_another_example, 'actual', actual)
+
+    assert expect == actual, "Assertion failed"
+
+
+
 
 if __name__ == "__main__":
     pytest.main(['-v','test_report.py','--html=test_report.html'])

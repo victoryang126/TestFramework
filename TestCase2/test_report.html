@@ -253,7 +253,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>test_report.html</h1>
-    <p>Report generated on 28-May-2023 at 21:54:14 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 29-May-2023 at 09:06:42 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -269,8 +269,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.6</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 0.07 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>2 tests ran in 0.10 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -284,9 +284,18 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">test_report.py::test_example</td>
+          <td class="col-name">test_report.py::test_case_example</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">def test_example():<br/>        add_row_to_report(1, &quot;执行操作A&quot;, &quot;期望结果A&quot;, &quot;实际结果A&quot;, &quot;通过&quot;)<br/>        add_row_to_report(2, &quot;执行操作B&quot;, &quot;期望结果B&quot;, &quot;实际结果B&quot;, &quot;失败&quot;)<br/>&gt;       assert False<br/><span class="error">E       assert False</span><br/><br/>test_report.py:63: AssertionError<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">timestamp = &lt;function timestamp.&lt;locals&gt;.get_timestamp at 0x7fc2c20e4d30&gt;<br/>teststep = &lt;function teststep.&lt;locals&gt;.get_teststep at 0x7fc2c218b280&gt;<br/><br/>    @pytest.mark.html<br/>    def test_case_example(timestamp, teststep):<br/>        action = &quot;Perform some action&quot;<br/>        expect = &quot;Expected value&quot;<br/>        actual = &quot;Actual value&quot;<br/>        result = &quot;Passed&quot; if expect == actual else &quot;Failed&quot;<br/>    <br/>        setattr(test_case_example, &#x27;action&#x27;, action)<br/>        setattr(test_case_example, &#x27;expect&#x27;, expect)<br/>        setattr(test_case_example, &#x27;actual&#x27;, actual)<br/>    <br/>&gt;       assert expect == actual, &quot;Assertion failed&quot;<br/><span class="error">E       AssertionError: Assertion failed</span><br/><span class="error">E       assert &#x27;Expected value&#x27; == &#x27;Actual value&#x27;</span><br/><span class="error">E         - Actual value</span><br/><span class="error">E         + Expected value</span><br/><br/>test_report.py:123: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">test_report.py::test_case_another_example</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">timestamp = &lt;function timestamp.&lt;locals&gt;.get_timestamp at 0x7fc2c20e4d30&gt;<br/>teststep = &lt;function teststep.&lt;locals&gt;.get_teststep at 0x7fc2c21bcc10&gt;<br/><br/>    @pytest.mark.html<br/>    def test_case_another_example(timestamp, teststep):<br/>        action = &quot;Perform another action&quot;<br/>        expect = &quot;Another expected value&quot;<br/>        actual = &quot;Another actual value&quot;<br/>        result = &quot;Passed&quot; if expect == actual else &quot;Failed&quot;<br/>    <br/>        setattr(test_case_another_example, &#x27;action&#x27;, action)<br/>        setattr(test_case_another_example, &#x27;expect&#x27;, expect)<br/>        setattr(test_case_another_example, &#x27;actual&#x27;, actual)<br/>    <br/>&gt;       assert expect == actual, &quot;Assertion failed&quot;<br/><span class="error">E       AssertionError: Assertion failed</span><br/><span class="error">E       assert &#x27;Another expected value&#x27; == &#x27;Another actual value&#x27;</span><br/><span class="error">E         - Another actual value</span><br/><span class="error">E         ?         ^  ^^^</span><br/><span class="error">E         + Another expected value</span><br/><span class="error">E         ?         ^^^^  ^^</span><br/><br/>test_report.py:137: AssertionError<br/></div></td></tr></tbody></table></body></html>
